@@ -100,6 +100,69 @@ int main()
 	std::cout << "Inicializando" << std::endl;
 	//configuramos el objeto
 	float vertices[]{
+		/*castillo mamalon*/
+		-1.0f, -1.0f, 0.0f,
+		 1.0f,-1.0f, 0.0f,
+		 1.0f,	-0.5f, 0.0f,
+
+		 -1.0f, -0.5f, 0.0f,
+		 -1.0f, -1.0f, 0.0f,
+		 1.0f,	-0.5f, 0.0f,
+
+		 -1.0f, -0.5f, 0.0f,
+		 -0.8f, -0.5f, 0.0f,
+		 -1.0f,	-0.3f, 0.0f,
+
+		 -1.0f, -0.3f, 0.0f,
+		 -0.8f, -0.5f, 0.0f,
+		 -0.8f,	-0.3f, 0.0f,
+
+
+		 -1.0f, -0.3f, 0.0f,
+		 -0.8f, -0.3f, 0.0f,
+		 -0.9f,	-0.1f, 0.0f,
+		 
+		 1.0f, -0.5f, 0.0f,
+		 0.8f, -0.5f, 0.0f,
+		 1.0f,	-0.3f, 0.0f,
+
+		 1.0f, -0.3f, 0.0f,
+		 0.8f, -0.5f, 0.0f,
+		 0.8f,	-0.3f, 0.0f,
+
+		 1.0f, -0.3f, 0.0f,
+		 0.8f, -0.3f, 0.0f,
+		 0.9f,	-0.1f, 0.0f,
+		 
+		 -0.2f, -0.5f, 0.0f,
+		 0.2f, -0.5f, 0.0f,
+		  -0.2f,  0.2f, 0.0f,
+
+		  -0.2f, 0.2f, 0.0f,
+		   0.2f, 0.2f, 0.0f,
+		   0.2f,  -0.5f, 0.0f,
+
+		  -0.2f, 0.2f, 0.0f,
+		   0.2f, 0.2f, 0.0f,
+		   0.0f,  0.4f, 0.0f,
+		 
+		  -0.03f, 0.2f, 0.0f,
+		   0.03f, 0.2f, 0.0f,
+		   -0.03f,  0.5f, 0.0f,
+
+		   -0.03f, 0.5f, 0.0f,
+		   0.03f, 0.5f, 0.0f,
+		   0.03f,  0.2f, 0.0f,
+
+			-0.03f, 0.5f, 0.0f,
+		   0.03f, 0.5f, 0.0f,
+		   0.03f,  0.2f, 0.0f,
+
+		   0.03f, 0.5f, 0.0f,
+		   0.1f, 0.5f, 0.0f,
+		   0.03f,  0.45f, 0.0f
+
+		 /*
 		//figura fea que no se como se llama
 		-1.0f, 0.5f, 0.0f,
 		-0.0f, 0.5f, 0.0f,
@@ -146,7 +209,7 @@ int main()
 		-0.0f, -0.5f, 0.0f,
 		-0.4f, -0.6f, 0.0f,
 		-0.3f, -0.7f, 0.0f,
-
+		*/
 	};
 
 	unsigned int VBO, VAO;
@@ -173,7 +236,7 @@ int main()
 		//dibujar
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 33);
+		glDrawArrays(GL_TRIANGLES, 0, 45);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
