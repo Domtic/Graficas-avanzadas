@@ -1,2 +1,12 @@
-﻿  ClaseQueMeOdiaCmasmas.cpp
+﻿  texturas.cpp
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\shader.h(54,34): warning C4101: 'e': unreferenced local variable
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\shader.h(117,58): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\texturas.cpp(447,79): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\texturas.cpp(447,68): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\texturas.cpp(447,41): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\texturas.cpp(485,50): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\texturas.cpp(487,28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\texturas.cpp(584,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\ClaseQueMeOdiaCmasmas\texturas.cpp(777,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   ClaseQueMeOdiaCmasmas.vcxproj -> C:\Users\folke\source\repos\ClaseQueMeOdiaCmasmas\x64\Debug\ClaseQueMeOdiaCmasmas.exe

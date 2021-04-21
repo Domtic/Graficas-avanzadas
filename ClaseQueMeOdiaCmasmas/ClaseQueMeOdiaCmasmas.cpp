@@ -3,7 +3,8 @@
 
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
-
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -16,16 +17,20 @@ const unsigned int ancho = 800;
 
 const char* vertexShaderSource = "#version 330 core \n"
 "layout(location =0) in vec3 aPos;\n"
+"layout(location =1) in vec3 aColor;\n"
+"out vec3 nuestroColor;\n"
 "void main()\n"
 "{\n"
-"gl_Position = vec4(aPos.x, aPos.y, aPos.z,1.0);\n"
+"gl_Position = vec4(aPos,1.0);\n"
+"nuestroColor = aColor;\n"
 "}\n\0";
 
 const char* fragmentShaderSource = "#version 330 core \n"
 "out vec4 FragColor; \n"
+"in vec3 nuestroColor; \n"
 "void main()\n"
 "{\n"
-"FragColor = vec4(0.5f,0.2f,0.8f,1.0f);\n"
+"FragColor = vec4(nuestroColor,1.0f);\n"
 "}\n\0";
 
 int main()
@@ -97,10 +102,10 @@ int main()
 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
-	std::cout << "Inicializando" << std::endl;
+	
 	//configuramos el objeto
 	float vertices[]{
-		/*castillo mamalon*/
+		/*castillo mamalon
 		-1.0f, -1.0f, 0.0f,
 		 1.0f,-1.0f, 0.0f,
 		 1.0f,	-0.5f, 0.0f,
@@ -196,12 +201,12 @@ int main()
 		0.2f, 0.2f, 0.0f,
 		0.4f, 0.2f, 0.0f,
 		0.3f, 0.15f, 0.0f,
-
+		*/
 		//triangulos randoms
-		0.1f, -0.3f, 0.0f,
-		0.4f, -0.3f, 0.0f,
-		0.3f, -0.4f, 0.0f,
-
+		0.1f, -0.3f, 0.0f,	1.0f, 0.0f, 0.0f,
+		0.4f, -0.3f, 0.0f,	0.0f, 1.0f, 0.0f,
+		0.3f, -0.4f, 0.0f,	0.0f, 0.0f, 1.0
+			/*
 		0.5f, -0.6f, 0.0f,
 		0.7f, -0.6f, 0.0f,
 		0.7f, -0.8f, 0.0f,
@@ -219,12 +224,18 @@ int main()
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),(void*)0);
+	glVertexAttribPointer(0,3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),(void*)0);
 
 	//Habilitar nuestros atributos
 	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
+	//habilitr el color del vertex
+	glVertexAttribPointer(1,3, GL_FLOAT, GL_FALSE, 6 * sizeof(float),(void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+	//glBindVertexArray(0);
+	//glBindBuffer(GL_ARRAY_BUFFER, 0);
+	
+	glUseProgram(shaderProgram);
+
 	
 	//generacion del ciclo de dibujado
 	while (!glfwWindowShouldClose(window))
@@ -232,10 +243,17 @@ int main()
 		processInput(window);
 		//color
 		glClearColor(0.5f, 0.2f, 0.3f, 1.0f);
-
+		glClear(GL_COLOR_BUFFER_BIT);
 		//dibujar
-		glUseProgram(shaderProgram);
+		
+
+		/*float timeValue = glfwGetTime();
+		float verde = sin(timeValue) / 2.0f + 0.5f;
+		int vertexColorLocation = glGetUniformLocation(shaderProgram, "nuestroColor");
+		glUniform4f(vertexColorLocation, 0.0f, verde,0.0f,1.0f);
+		*/
 		glBindVertexArray(VAO);
+		//glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 45);
 
 		glfwSwapBuffers(window);

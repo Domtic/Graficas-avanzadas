@@ -146,7 +146,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\..\glfw\src\glad.c" />
-    <ClCompile Include="ClaseQueMeOdiaCmasmas.cpp" />
+    <ClCompile Include="texturas.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="texturas.vs" />
+    <None Include="texturas2.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="dd.jpg" />
+    <Image Include="dd.png" />
+    <Image Include="dirty_concrete_nor_1k.jpg" />
+    <Image Include="dirty_concrete_nor_1k.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
